@@ -37,10 +37,21 @@ ul li a{
     margin:0 30px;
 }
 
-nav a{
+.cart-holder{
+    border:2px solid #06862c;
+    border-radius: 7px;;
+    padding:2px 10px;
+    position: absolute;
+    right: 2%;
     text-decoration: none;
-    color:greenyellow;
-    font-size:1.2rem
+    color: white;
+}
+.cart-number{
+    position:absolute;
+    color:#06862c;
+    font-size: 20px;
+    top:-10px;
+    right:-15px;
 }
 
 @media(max-width:600px){
@@ -199,6 +210,8 @@ section h2{
     font-weight:700;
 }
 
+/*footer*/
+
 footer{
     display:flex;
     margin-top:40px;
@@ -224,11 +237,207 @@ footer .footer-icons{
     display:flex;
 }
 .footer-icons li{
-    padding:10px;
+    padding:2px;
+    
     
 }
 
 .footer-icons i{
-    width:30px;
+    width:40px;
+    text-align: center;
+} 
+.footer-icons i:hover{
+    transform:scale(1.2);
+    transition: transform .2s ease-in-out;
+    
 } 
 
+/*about us paage*/
+
+#about{
+   
+    max-width:900px;
+    margin:0 auto;
+    font-size: 22px;
+}
+#about h3{
+    text-align: center;
+    font-size:25px;
+    margin:20px;
+}
+
+#about img{
+    float:left;
+    margin:20px 50px;
+    border-radius: 50%;
+    width:200px;
+    height:200px;
+}
+
+#about p{
+    font-size:17px;
+    margin:20px;
+    color:#777;
+}
+
+
+/*home*/
+
+/* #container{
+    position:fixed;
+    bottom:10px;
+    right:10px;
+} */
+
+#tours .tour-item{
+    display:flex;
+    border-bottom:1px solid black;
+    padding:10px;
+}
+#tours .tour-item .tour-date{
+    width:12%;
+}
+#tours .tour-item .tour-place{
+    width:25%;
+    color:#777;
+}
+#tours .tour-item .tour-spec-place{
+    width:53%;
+    color:#777;
+}
+#tours .tour-item .buy-btn{
+    width:20%;
+    background: #56CCF2;
+    color:white;
+    border:none;
+    padding:7px;
+    border-radius:5px;
+    font-weight:700;
+    
+}
+
+
+/*Cart*/
+
+.cart-row{
+    font-size:18px;
+    display:flex;
+}
+.cart-header{
+    font-size:1.2rem;
+    font-weight: bold;
+}
+.cart-item{
+    width:45%;
+}
+.cart-img{
+    width:80px;
+    border-radius:8%;
+    margin-right:20px;
+}
+.cart-price{
+    width:20%;
+}
+.cart-quantity{
+    width:35%;
+}
+.cart-column{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+.cart-quantity-input{
+    width:40px;
+    height:30px;
+    border:1px solid rgb(0, 204, 255) ;
+    border-radius:8%;
+    outline:none;
+    text-align:center;
+    margin-right:20px;
+}
+ button.btn-danger{
+    color:white;
+    font-weight: bold;
+    background: rgb(231, 76, 76);
+    cursor: pointer;
+    border:none;
+    border-radius:8%;
+    height:30px;
+    outline:none;
+    padding: 0px 7px;
+}
+button.btn-danger:hover{
+    background: rgb(218, 37, 37);;
+}
+.cart-total{
+    display:flex;
+    flex-direction: row-reverse;
+    font-size:1.2rem;
+    margin:20px;
+}
+.cart-total .total-title{
+    margin-right:10px;
+    font-size:1.5rem;
+}
+
+#cart{
+    margin:0px;
+    display: block;
+    position:fixed;
+    top:50px;
+    height: 95%;
+    right:0;
+    background-color:rgb(255, 255, 255);
+    border:1px solid rgb(177, 103, 103);
+    min-height:50vh;
+}
+
+
+
+#cart h2{
+    margin:20px 0px;
+    padding:0;
+}
+
+
+.cancel{
+    border:none;
+    position:absolute;
+    cursor:pointer;
+    color:rgb(121, 117, 117);
+    top:0;
+    right:0;
+    margin:20px;
+    background:none;
+    font-size:16px;
+    font-weight: 700;
+    border-radius:7px;
+    padding:5px;
+}
+
+
+/* .notification {
+    background-color: #56CCF2;
+    border-radius: 5px;
+    color: black;
+    padding: 2rem;
+    margin: 1rem;
+} */
+
+/* .notification h4 span{
+    color:rgb(235, 33, 33);
+} */
+
+
+
+/* .fa-shopping-cart{
+    color:white;
+}
+ */
+
+
+
+/*  */
