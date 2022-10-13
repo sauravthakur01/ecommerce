@@ -1,0 +1,234 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+}
+
+body{
+    
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+nav{
+    background-color: #262626;
+    color: white;
+    display: flex;
+    position:fixed;
+    width:100%;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 4;
+}
+
+ul.header{
+    list-style-type: none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    width:80%;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    margin:0 30px;
+}
+
+nav a{
+    text-decoration: none;
+    color:greenyellow;
+    font-size:1.2rem
+}
+
+@media(max-width:600px){
+    nav li{
+        margin:0px 20px;
+    }
+}
+
+.title{
+    color:rgb(38, 130, 216)
+}
+
+header h1{
+    font-size: 60px;
+    text-align: center;
+    color:white;
+    padding-top:75px ;
+    background-color: #777;
+    padding-bottom: 10px;
+}
+
+section h2{
+    font-family:"Metal Mania";
+    text-align:center;
+    padding:20px;
+    font-size:30px;
+}
+.container{
+    max-width:900px;
+    margin:0 auto;
+    padding:20px 30px;
+}
+#music-content{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+#music-content div{
+    margin:30px;
+
+}
+#music-content div h3{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+#music-content .prod-details{
+    display: flex;
+    margin: 8px;
+    align-items: center;
+    justify-content: space-between;
+}
+#music-content .shop-item-button{
+    cursor:pointer;
+    padding:8px;
+    color:white;
+    border:none;
+    font-size:15px;
+    font-weight: bold;
+    border-radius: 4%;
+    background: #56CCF2;
+}
+#music-content .shop-item-button:hover, #merch-content .shop-item-button:hover{
+    background: #0eabdf;
+}
+
+.image-container{
+    height: 250px;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+.prod-images{
+    transform-origin: center center;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    padding:0px;
+    margin:0px;
+    transition: ease-in 0.5s;
+    filter: brightness(100%);
+}
+.prod-images:hover{
+    transform: scale(1.5);
+    filter: brightness(130%);
+}
+
+.purchase-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    margin-top: 50px;
+    background: #56CCF2;
+    color:white;
+    font-size:1.2rem;
+    font-weight: bold;
+    border:none;
+    border-radius:8%;
+    padding:12px;
+    cursor: pointer;
+}
+.purchase-btn:hover{
+    background-color:#18acdd;
+}
+
+#merch-content{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+}
+#merch-content div{
+    margin:30px;
+}
+#merch-content div h3{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+#merch-content .prod-details{
+    display:flex;
+    margin:8px;
+    align-items:center;
+    justify-content: space-between;
+}
+#merch-content .shop-item-button{
+    cursor:pointer;
+    padding:8px;
+    color:white;
+    border:none;
+    font-size:15px;
+    font-weight: bold;
+    border-radius: 4%;
+    background: #56CCF2;
+}
+
+.cart-btn-bottom{
+    display:flex;
+    padding:15px;
+    background-color: #777;
+    border:none;
+    border-radius:7px;
+    margin:auto;
+    cursor:pointer;
+}
+.cart-bottom{
+    text-decoration: none;
+    color:#56CCF2;
+    font-size: 16px;
+    font-weight:700;
+}
+
+footer{
+    display:flex;
+    margin-top:40px;
+    padding:20px;
+    background: #262626;
+}
+footer .footer-title{
+    text-align: center;
+    color:white;
+    width:50%;
+    font-size:50px;
+    font-weight:bold;
+    margin:0 auto;
+}
+footer .footer-icons{
+    width:50%;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.footer-icons ul{
+    list-style-type: none;
+    display:flex;
+}
+.footer-icons li{
+    padding:10px;
+    
+}
+
+.footer-icons i{
+    width:30px;
+} 
+
