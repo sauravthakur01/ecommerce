@@ -7,6 +7,7 @@ if (document.readyState == "loading") {
 function ready() {
   
   getProductsFromBackend();
+  fetchCartProducts();
   updateCartTotal();
   countItemsInCart();
 
@@ -211,4 +212,39 @@ async function postProductToCart(prodId){
     } catch (error) {
         console.log(error);
     }
+}
+
+async function fetchCartProducts(){
+    try {
+        const products = await axios.get('http://localhost:3000/cart') 
+        console.log(products.data)
+        products.data.map(p=>{
+            showProductsInCart(p);
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function showProductsInCart(product){
+    var cartItems = document.getElementsByClassName("cart-items")[0];
+    let childHTML = `<div class="cart-row">
+    <span class="cart-item cart-column">
+      <img
+        class="cart-img shop-item-img"
+        src="${product.imageUrl}"
+        alt=""
+      />
+      <span class="cart-item-title">${product.title}</span>
+    </span>
+    <span class="cart-price cart-column shop-item-price">${product.price}</span>
+    <span class="cart-quantity cart-column">
+      <input type="number" class="cart-quantity-input" value="1" min="1" max="1" />
+      <button class="btn-danger">REMOVE</button>
+    </span>
+  </div>`
+
+  cartItems.innerHTML = cartItems.innerHTML + childHTML
+  countItemsInCart();
+  updateCartTotal()
 }
