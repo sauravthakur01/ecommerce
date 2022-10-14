@@ -5,6 +5,9 @@ if (document.readyState == "loading") {
 }
 
 function ready() {
+  
+  getProductsFromBackend();
+
   updateCartTotal();
   countItemsInCart();
 
@@ -161,4 +164,41 @@ function showNotification(title){
     setTimeout(()=>{
         newDiv.remove();
     },2500)
+}
+
+async function getProductsFromBackend(){
+    try {
+        let products = await axios.get('http://localhost:3000/products');
+        console.log(products.data.products);
+        products.data.products.map(p=>{
+            addProductsToScreen(p)
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function addProductsToScreen(data){
+   
+    let list = document.getElementById("music-content");
+    let childHTML = `<div id=${data.id}>
+    <h3 class="shop-item-title">${data.title}</h3>
+    <div class="image-container">
+      <img
+        class="prod-images shop-item-img"
+        src=${data.imageUrl}
+        alt=""
+      />
+    </div>
+    <div class="prod-details">
+      <span class="shop-item-price ">$${data.price}</span>
+      <button class="shop-item-button" type="button">
+        ADD TO CART
+      </button>
+    </div>
+  </div>`
+
+    list.innerHTML = list.innerHTML + childHTML ;
+
+
 }
