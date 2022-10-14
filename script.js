@@ -7,7 +7,6 @@ if (document.readyState == "loading") {
 function ready() {
   
   getProductsFromBackend();
-
   updateCartTotal();
   countItemsInCart();
 
@@ -76,7 +75,7 @@ function quantityChanged(e) {
   updateCartTotal();
 }
 
-function addToCartClicked(e) {
+function addToCartClicked(e , id) {
   var button = e.target;
   var shopItem = button.parentElement.parentElement;
 
@@ -84,13 +83,13 @@ function addToCartClicked(e) {
   var price = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
   var image = shopItem.getElementsByClassName("shop-item-img")[0].src;
  
-  addItemTOCart(title, price, image);
+  addItemTOCart(title, price, image , id);
   updateCartTotal();
   countItemsInCart();
   showNotification(title);
 }
 
-function addItemTOCart(title, price, image) {
+function addItemTOCart(title, price, image , id) {
   var cartRow = document.createElement("div");
   var cartItems = document.getElementsByClassName("cart-items")[0];
   var cartItemNames = cartItems.getElementsByClassName("cart-item-title");
@@ -111,13 +110,15 @@ function addItemTOCart(title, price, image) {
     </span>
     <span class="cart-price cart-column shop-item-price">${price}</span>
     <span class="cart-quantity cart-column">
-      <input type="number" class="cart-quantity-input" value="1" />
+      <input type="number" class="cart-quantity-input" value="1" min="1" max="1" />
       <button class="btn-danger">REMOVE</button>
     </span>
   </div>`;
 
   cartRow.innerHTML = cartContent;
   cartItems.append(cartRow);
+  
+  postProductToCart(id);
   cartRow
     .getElementsByClassName("btn-danger")[0]
     .addEventListener("click", removeCartItem);
@@ -125,6 +126,7 @@ function addItemTOCart(title, price, image) {
     .getElementsByClassName("cart-quantity-input")[0]
     .addEventListener("change", quantityChanged);
 
+    
 }
 
 function updateCartTotal() {
@@ -169,7 +171,7 @@ function showNotification(title){
 async function getProductsFromBackend(){
     try {
         let products = await axios.get('http://localhost:3000/products');
-        console.log(products.data.products);
+        
         products.data.products.map(p=>{
             addProductsToScreen(p)
         })
@@ -192,7 +194,7 @@ function addProductsToScreen(data){
     </div>
     <div class="prod-details">
       <span class="shop-item-price ">$${data.price}</span>
-      <button class="shop-item-button" type="button">
+      <button class="shop-item-button" type="button" onclick="addToCartClicked(event, ${data.id})">
         ADD TO CART
       </button>
     </div>
@@ -200,5 +202,13 @@ function addProductsToScreen(data){
 
     list.innerHTML = list.innerHTML + childHTML ;
 
+}
 
+async function postProductToCart(prodId){
+    try {
+        const data = await axios.post('http://localhost:3000/cart',{prodId:prodId});
+        console.log(data);
+    } catch (error) {
+        console.log(error);
+    }
 }
