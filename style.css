@@ -385,7 +385,7 @@ button.btn-danger:hover{
 
 #cart{
     margin:0px;
-    display: block;
+    display: none;
     position:fixed;
     top:50px;
     height: 95%;
@@ -395,7 +395,9 @@ button.btn-danger:hover{
     min-height:50vh;
 }
 
-
+#cart.active{
+    display: block;
+}
 
 #cart h2{
     margin:20px 0px;
