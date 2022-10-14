@@ -283,11 +283,23 @@ footer .footer-icons{
 
 /*home*/
 
-/* #container{
+#container{
     position:fixed;
     bottom:10px;
     right:10px;
-} */
+}
+
+.notification {
+    background-color: #56CCF2;
+    border-radius: 5px;
+    color: black;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.notification h4 span{
+    color:rgb(235, 33, 33);
+}
 
 #tours .tour-item{
     display:flex;
@@ -384,6 +396,7 @@ button.btn-danger:hover{
 }
 
 #cart{
+    overflow:auto;
     margin:0px;
     display: none;
     position:fixed;

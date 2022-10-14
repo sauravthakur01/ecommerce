@@ -76,14 +76,15 @@ function quantityChanged(e) {
 function addToCartClicked(e) {
   var button = e.target;
   var shopItem = button.parentElement.parentElement;
-  
+
   var title = shopItem.getElementsByClassName("shop-item-title")[0].innerText;
   var price = shopItem.getElementsByClassName("shop-item-price")[0].innerText;
   var image = shopItem.getElementsByClassName("shop-item-img")[0].src;
-
+ 
   addItemTOCart(title, price, image);
   updateCartTotal();
   countItemsInCart();
+  showNotification(title);
 }
 
 function addItemTOCart(title, price, image) {
@@ -148,4 +149,16 @@ function countItemsInCart(){
     var cartRows = cartItemContainer.getElementsByClassName("cart-row");
     var cartItemsLength = cartRows.length;
     document.getElementsByClassName('cart-number')[0].innerText = cartItemsLength;
+}
+
+function showNotification(title){
+    const notifications = document.getElementById('container');
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('notification');
+    newDiv.innerHTML = `<h4>Your Product : <span>${title}</span> added to cart<h4>`
+    notifications.append(newDiv);
+
+    setTimeout(()=>{
+        newDiv.remove();
+    },2500)
 }
